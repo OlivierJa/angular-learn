@@ -1,0 +1,50 @@
+<p>
+  template works!
+</p>
+
+<p>
+  Mustaches can call functions: {{ getName() }}
+</p>
+
+<!-- [blablabla] will modify native javascript property -->
+<nav [textContent]=" 'Waouwww' ">Hello</nav>
+
+<nav [textContent]="getContent()"></nav>
+
+<!-- * means a modification of the DOM structure -->
+<ul>
+  Users:
+  <li *ngFor="let u of users">{{u}}</li>
+
+</ul>
+
+<div *ngIf="users.length > 3">
+there is a lot of users
+</div>
+
+<!-- Condition() is a function call -->
+<div *ngIf="condition()">
+  there is a lot of users
+</div>
+
+<div class="impressive"> This is an impressive DIV</div>
+
+<div [className]="getImpressiveStyle()">This is an impressive DIV
+</div>
+
+<div [className]="{banana:users.length>3}">This is a conditional class</div>
+
+<!-- ngClass is NOT a standard JS property. It's an angular 'directive'-->
+<div [ngClass]=" {banana:users.length>3}">This is a conditional class</div>
+
+<!-- We can declare a variable on a component -->
+<div #friend>Hello my friend</div>
+
+<div>The content was: {{friend.textContent}}</div>
+
+<input type="text" value="I am a data" #myInput>
+
+<div>Value is: {{myInput.value}}</div>
+
+<!-- () to declare an event, it will recompile the pseudo-HTML-->
+<button (click)="clearUsers()">Delete People</button>
